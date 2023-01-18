@@ -1,0 +1,16 @@
+﻿@model Chest.Domain.Chest
+
+<h1>Вы уверены что хотите удалить @Model.Name ?? </h1>
+
+<form asp-action="Delete" asp-controller="Chest">
+
+    <p>
+        <input type="submit" value="Удалить " />
+    </p>
+</form>
+<form asp-action="Index" asp-controller="Chest">
+
+    <p>
+        <input type="submit" value="Не удалять" />
+    </p>
+</form>

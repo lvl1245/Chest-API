@@ -1,0 +1,17 @@
+﻿@model Chest.Domain.Chest
+ 
+<h2 class="text-center text-primary">Добавление сундука</h2>
+<form asp-action="Create" asp-controller="Chest">
+    <p>
+        <label asp-for="Name">Имя</label><br/>
+        <input type="text" asp-for="Name" />
+    </p>
+     <p>
+        <label asp-for="Size">Размер</label><br/>
+        <input type="number" asp-for="Size" />
+    </p>
+
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Отправить">
+
+
+</form>

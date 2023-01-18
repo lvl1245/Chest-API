@@ -1,0 +1,23 @@
+﻿@model Chest.Domain.Stuff
+
+<h2 class="text-center text-primary">Добавление предмета</h2>
+@using (Html.BeginForm())
+{
+   
+        @Html.HiddenFor(model => model.ChestId,new {ChestId = ViewBag.ChestId});
+
+        <form asp-action="Create" asp-controller="Stuff" >
+            <p>
+                <label asp-for="Name">Имя</label><br />
+                <input type="text" asp-for="Name" />
+            </p>
+             <p>
+                <label asp-for="Size">Размер</label><br />
+                <input type="number" asp-for="Size" />
+            </p>
+            <p>
+                <input type="submit" value="Отправить" />
+            </p>   
+        </form>
+    
+}

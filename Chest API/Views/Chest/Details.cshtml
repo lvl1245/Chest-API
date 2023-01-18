@@ -1,0 +1,27 @@
+﻿
+@model Chest.Domain.Chest
+<div>
+    <h4 class="text-center text-primary display-5">Сундук @Model.Name</h4>
+    <hr />
+        <dt">Размер</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+        <dt>Текущий размер</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CurrentSpase)
+        </dd>
+        <dt>Предметы</dt>
+        <dd>
+            <ul>
+            @if (Model.StuffCollection != null)
+            {
+                @foreach (var stuff in Model.StuffCollection)
+                {
+                    <li>@stuff.Name</li> 
+                }
+            }
+            </ul>
+        </dd>
+    </dl>
+</div>

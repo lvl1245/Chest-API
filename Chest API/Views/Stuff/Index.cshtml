@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Chest.Domain.Stuff>
+
+ @using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+{
+    <h2 class="central">Список вещей в судуках</h2>
+<table class="table">
+     <tr><th>Имя</th><th>размер</th><th>Имя сундука</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Size</td>
+            <td>@item.Chest.Name</td>
+        </tr>
+    }
+</table>
+}

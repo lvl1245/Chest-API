@@ -1,0 +1,67 @@
+﻿@*@model IEnumerable<Chest.Domain.Chest>
+
+<h2 class="bg-gradient text-primary text-center">Список сундуков</h2>
+<p><a asp-action="Create">Добавить сундук</a></p>
+<table class="table">
+     <tr><th>Имя</th><th>Pазмер</th><th>кол во вещей</th><th>Id</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Name</td>
+            <td>@item.Size</td>
+            <td>@item.CountOfStuff</td>
+            <td class=" link-info">@item.Id &nbsp;&nbsp; @Html.ActionLink("Открыть содержимое", "Details", "Chest", new {id = item.Id}, null) &nbsp;&nbsp;&nbsp; @Html.ActionLink("Добавить предмет", "Create", "Stuff", new {ChestId = item.Id}, null)
+                &nbsp;&nbsp;&nbsp; <a asp-controller="Chest" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+            </td>
+           
+        </tr>
+    }
+</table>*@
+
+
+@model IEnumerable<Chest.Domain.Chest>
+
+<h2 class="bg-gradient text-primary text-center">Список сундуков</h2>
+
+<p><a asp-action="Create">Добавить сундук</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Stuff count</th>
+            <th scope="col">Id</th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach (var item in Model)
+        {
+            <tr>
+                <th class="row">@item.Name</th>
+                <td>@item.Size</td>
+                <td>@item.CountOfStuff</td>
+                <td class=" link-info">@item.Id &nbsp;&nbsp; @Html.ActionLink("Открыть содержимое", "Details", "Chest", new {id = item.Id}, null) 
+                    &nbsp;&nbsp;&nbsp; @Html.ActionLink("Добавить предмет", "Create", "Stuff", new {ChestId = item.Id}, null)
+                     &nbsp;&nbsp;&nbsp; <a asp-controller="Chest" asp-action="Edit" asp-route-id="@item.Id">Переименовать</a>
+                    &nbsp;&nbsp;&nbsp; <a asp-controller="Chest" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>  
+
+<div class="card-group">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">@item.Name</h5>
+            <p class="card-text">@item.Size</p>
+             <p class="card-text">@item.CountOfStuff</p>
+            </div>
+        </div>
+    }
+</div>

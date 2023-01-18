@@ -1,0 +1,20 @@
+﻿@model Chest.Domain.Chest
+
+<div>
+    <form asp-action="Edit" asp-controller="Chest">
+        <h4 class="text-center text-primary">Сундук @Model.Name изменение названия </h4>
+
+    <p>
+            <label asp-for="Name">Имя</label><br />
+            <input type="text" asp-for="Name" />
+    </p>
+
+    @Html.HiddenFor(model => model.Size)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.CurrentSpase)
+    @Html.HiddenFor(model => model.CountOfStuff)
+    @Html.HiddenFor(model => model.StuffCollection)
+
+    <input type="submit" value="Отправить" />
+   </form>  
+</div>
