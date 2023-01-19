@@ -8,7 +8,7 @@ namespace Chest.Domain
 {
     public class ChestType
     {
-        public String TepeName { get; set; }
+        public String TypeName { get; set; }
         public String TypeDescription { get; set; }
 
         public int Id { get; set; }

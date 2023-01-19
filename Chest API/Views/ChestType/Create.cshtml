@@ -1,0 +1,15 @@
+﻿
+@model Chest.Domain.ChestType
+
+<h2 class="text-center text-primary">Добавление типа сундука</h2>
+<form asp-action="Create" asp-controller="ChestType">
+    <p>
+        <label asp-for="TypeName">Название типа</label><br />
+        <input type="text" asp-for="TypeName" />
+    </p>
+     <p>
+        <label asp-for="TypeDescription">описание типа</label><br />
+        <input type="text" asp-for="TypeDescription" />
+    </p>
+    <input class="btn btn-primary btn-lg " type="submit" value="Отправить">
+</form>
