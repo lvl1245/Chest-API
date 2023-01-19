@@ -18,7 +18,7 @@
             {
                 @foreach (var stuff in Model.StuffCollection)
                 {
-                    <li>@stuff.Name</li> 
+                    <li>@(stuff.Name + "Размер:") @stuff.Size</li> 
                 }
             }
             </ul>

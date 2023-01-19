@@ -1,13 +1,21 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Chest.Domain;
+using Chest.Persistence;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chest_API.Controllers
 {
     public class ChestTypeController : Controller
     {
+        readonly ChestDbContext chestDbContext;
+        public ChestTypeController(ChestDbContext context)
+        {
+            chestDbContext = context;
+        }
         // GET: ChestTypeController
         public ActionResult Index()
         {
+            ViewBag.ChestCount = chestDbContext.chestTypes.Count();
             return View();
         }
 
@@ -23,19 +31,12 @@ namespace Chest_API.Controllers
             return View();
         }
 
-        // POST: ChestTypeController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(ChestType chestType)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            chestDbContext.chestTypes.Add(chestType);
+            await chestDbContext.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         // GET: ChestTypeController/Edit/5
